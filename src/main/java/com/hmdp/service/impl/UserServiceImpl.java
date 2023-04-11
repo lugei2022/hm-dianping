@@ -105,7 +105,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 		// 7.3 存储
 		stringRedisTemplate.opsForHash().putAll(LOGIN_USER_KEY + token, userMap);
 		// 设置有效期,时间类似于session,加上一个随机时间,防止大量值同时失效
-		stringRedisTemplate.expire(LOGIN_USER_KEY + token, LOGIN_USER_TTL + RandomUtil.randomInt(1, 10),
+		stringRedisTemplate.expire(LOGIN_USER_KEY + token, LOGIN_USER_TTL + RandomUtil.randomLong(1, 10),
 				TimeUnit.MINUTES);
 
 		return Result.ok(token);

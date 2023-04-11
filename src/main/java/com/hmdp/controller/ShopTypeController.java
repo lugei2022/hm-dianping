@@ -1,6 +1,5 @@
 package com.hmdp.controller;
 
-
 import com.hmdp.dto.Result;
 import com.hmdp.entity.ShopType;
 import com.hmdp.service.IShopTypeService;
@@ -22,13 +21,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/shop-type")
 public class ShopTypeController {
-    @Resource
-    private IShopTypeService typeService;
+	@Resource
+	private IShopTypeService typeService;
 
-    @GetMapping("list")
-    public Result queryTypeList() {
-        List<ShopType> typeList = typeService
-                .query().orderByAsc("sort").list();
-        return Result.ok(typeList);
-    }
+	@GetMapping("list")
+	public Result queryTypeList() {
+		return typeService.querySort();
+	}
 }
