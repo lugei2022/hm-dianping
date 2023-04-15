@@ -111,7 +111,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 		return Result.ok(token);
 	}
 
-	private User createUserWithPhone(String phone) {
+	public User createUserWithPhone(String phone) {
 		// 1.创建用户
 		User user = new User();
 		user.setPhone(phone);
